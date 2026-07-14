@@ -1,22 +1,24 @@
 package com.trupti.service;
 
+import com.trupti.payment.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class OrderService {
 //    @Autowired
     private PaymentService paymentService;
 
-    @Autowired
+//    @Autowired - If only one constructor is present then no need to write this
     public OrderService(PaymentService paymentService) {
         this.paymentService = paymentService;
     }
 
 //    @Autowired
-//    public void setPaymentService(PaymentService paymentService) {
-//        this.paymentService = paymentService;
-//    }
+    public void setPaymentService(PaymentService paymentService) {
+        this.paymentService = paymentService;
+    }
 
     public void placeOrder() {
         paymentService.pay();
