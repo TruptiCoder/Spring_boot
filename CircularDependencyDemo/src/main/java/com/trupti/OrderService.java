@@ -1,19 +1,23 @@
 package com.trupti;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class OrderService {
-    @Autowired
+
+    // Now circular dependency is resolved
     private PaymentService paymentService = null;
 
-//    public OrderService(PaymentService paymentService) {
-//        this.paymentService = paymentService;
-//    }
+    public OrderService(PaymentService paymentService) {
+        this.paymentService = paymentService;
+    }
 
     public void placeOrder() {
         paymentService.pay();
+
+        // call here
+        getOrderDetails();
+
         System.out.println("Order is placed");
     }
 

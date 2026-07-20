@@ -1,13 +1,12 @@
 package com.trupti;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class PaymentService {
 
-    @Autowired
-    OrderService orderService = null;
+//    @Autowired
+//    OrderService orderService = null;
 
 //    public PaymentService(OrderService orderService) {
 //        this.orderService = orderService;
@@ -15,6 +14,7 @@ public class PaymentService {
 
     public void pay() {
         System.out.println("Payment done!");
-        orderService.getOrderDetails();
+        // Not its reponsibility
+        // orderService.getOrderDetails();
     }
 }
